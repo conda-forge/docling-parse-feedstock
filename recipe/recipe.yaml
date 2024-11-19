@@ -35,13 +35,13 @@ requirements:
     - ${{ stdlib("c") }}
     - cmake
     - ${{ "make" if unix else "ninja" }}
+    - pkg-config
   host:
     # build tools
     - python
     - poetry-core
     - pybind11 >=2.13.1
     - pip
-    - pkg-config
     # libraries
     - cxxopts
     - loguru-cpp
