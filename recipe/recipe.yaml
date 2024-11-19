@@ -1,6 +1,6 @@
 context:
   name: docling-parse
-  version: 2.0.2
+  version: 2.0.4
 
 package:
   name: ${{ name|lower }}
@@ -8,12 +8,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/docling_parse-${{ version }}.tar.gz
-  sha256: 18823b491b060972df7c2623184896005435b1ec8a9fb5e386427207e2dda0bd
+  sha256: bdcdfe070509e137846108056931e3738ad3225fcb31ed1496e9368690c3036d
   patches:
     - fix-utfcpp.patch
 
 build:
-  number: 1
+  number: 0
   skip: win
   script:
     content: python -m pip install . -vv --no-deps --no-build-isolation
@@ -35,12 +35,14 @@ requirements:
     - ${{ stdlib("c") }}
     - cmake
     - ${{ "make" if unix else "ninja" }}
-    - pkg-config
   host:
+    # build tools
     - python
     - poetry-core
     - pybind11 >=2.13.1
     - pip
+    - pkg-config
+    # libraries
     - cxxopts
     - loguru-cpp
     - nlohmann_json
@@ -50,7 +52,7 @@ requirements:
     - zlib
   run:
     - python
-    - tabulate >=0.9.0
+    - tabulate >=0.9.0,<1.0.0
     - ${{ "pywin32 >=305" if win }}
 
 tests:
