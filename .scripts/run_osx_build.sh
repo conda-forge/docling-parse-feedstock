@@ -8,6 +8,10 @@ set -xe
 
 MINIFORGE_HOME=${MINIFORGE_HOME:-${HOME}/miniforge3}
 MINIFORGE_HOME=${MINIFORGE_HOME%/} # remove trailing slash
+
+# set the conda build path
+CONDA_BLD_PATH="${MINIFORGE_HOME}/conda-bld"
+
 ( startgroup "Provisioning base env with pixi" ) 2> /dev/null
 mkdir -p ${MINIFORGE_HOME}
 curl -fsSL https://pixi.sh/install.sh | bash
@@ -73,7 +77,7 @@ else
 
     rattler-build build --recipe ./recipe \
         -m ./.ci_support/${CONFIG}.yaml \
-        --output-dir ${MINIFORGE_HOME}/conda-bld ${EXTRA_CB_OPTIONS:-} \
+        --output-dir ${CONDA_BLD_PATH} ${EXTRA_CB_OPTIONS:-} \
         --target-platform "${HOST_PLATFORM}" \
         --extra-meta flow_run_id="$flow_run_id" \
         --extra-meta remote_url="$remote_url" \
