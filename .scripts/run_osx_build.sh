@@ -9,8 +9,7 @@ set -xe
 MINIFORGE_HOME=${MINIFORGE_HOME:-${HOME}/miniforge3}
 MINIFORGE_HOME=${MINIFORGE_HOME%/} # remove trailing slash
 
-# set the conda build path
-CONDA_BLD_PATH="${MINIFORGE_HOME}/conda-bld"
+
 
 ( startgroup "Provisioning base env with pixi" ) 2> /dev/null
 mkdir -p ${MINIFORGE_HOME}
@@ -35,7 +34,8 @@ export CONDA_LIBMAMBA_SOLVER_NO_CHANNELS_FROM_INSTALLED=1
 
 
 
-
+# set the conda build path
+CONDA_BLD_PATH="${MINIFORGE_HOME}/conda-bld"
 
 echo -e "\n\nSetting up the condarc and mangling the compiler."
 setup_conda_rc ./ ./recipe ./.ci_support/${CONFIG}.yaml
