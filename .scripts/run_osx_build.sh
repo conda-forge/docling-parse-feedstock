@@ -9,7 +9,8 @@ set -xe
 MINIFORGE_HOME=${MINIFORGE_HOME:-${HOME}/miniforge3}
 MINIFORGE_HOME=${MINIFORGE_HOME%/} # remove trailing slash
 
-
+# set the conda build path
+export CONDA_BLD_PATH="${MINIFORGE_HOME}/conda-bld"
 
 ( startgroup "Provisioning base env with pixi" ) 2> /dev/null
 mkdir -p ${MINIFORGE_HOME}
@@ -34,8 +35,6 @@ export CONDA_LIBMAMBA_SOLVER_NO_CHANNELS_FROM_INSTALLED=1
 
 
 
-# set the conda build path
-CONDA_BLD_PATH="${MINIFORGE_HOME}/conda-bld"
 
 echo -e "\n\nSetting up the condarc and mangling the compiler."
 setup_conda_rc ./ ./recipe ./.ci_support/${CONFIG}.yaml
@@ -84,8 +83,6 @@ else
         --extra-meta sha="$sha"
 
     ( startgroup "Inspecting artifacts" ) 2> /dev/null
-
-    env | sort
 
     # inspect_artifacts was only added in conda-forge-ci-setup 4.9.4
     command -v inspect_artifacts >/dev/null 2>&1 && inspect_artifacts --recipe-dir ./recipe -m ./.ci_support/${CONFIG}.yaml || echo "inspect_artifacts needs conda-forge-ci-setup >=4.9.4"
