@@ -1,14 +1,14 @@
 context:
   name: docling-parse
-  version: 2.0.4
+  version: 2.1.0
 
 package:
   name: ${{ name|lower }}
   version: ${{ version }}
 
 source:
-  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/docling_parse-${{ version }}.tar.gz
-  sha256: bdcdfe070509e137846108056931e3738ad3225fcb31ed1496e9368690c3036d
+  url: https://github.com/DS4SD/docling-parse/archive/refs/tags/v${{ version }}.zip
+  sha256: a61a87f91dbd90ebc64b96410b8e6062fd330095c5ece5c628083c09af417f8e
   patches:
     - fix-utfcpp.patch
 
