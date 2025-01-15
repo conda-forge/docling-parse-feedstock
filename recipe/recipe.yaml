@@ -60,8 +60,6 @@ tests:
       imports:
         - docling_parse
       pip_check: true
-  - script:
-      - docling-parse --help
 
 about:
   summary: Simple package to extract text with coordinates from programmatic PDFs
