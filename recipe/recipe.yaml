@@ -21,9 +21,6 @@ build:
     content: python -m pip install . -vv --no-deps --no-build-isolation
     env:
       USE_SYSTEM_DEPS: "on"
-  python:
-    entry_points:
-      - docling-parse = docling_parse.run:main
 
 requirements:
   build:
