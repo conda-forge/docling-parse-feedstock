@@ -9,5 +9,5 @@ build_platform:
   osx_arm64: osx_64
   linux_aarch64: linux_64
   linux_ppc64le: linux_64
-test: native_and_emulated
-conda_install_tool: micromamba
+test: native
+conda_install_tool: pixi

@@ -1,6 +1,6 @@
 context:
   name: docling-parse
-  version: 2.1.0
+  version: "3.0.0"
 
 package:
   name: ${{ name|lower }}
@@ -8,20 +8,18 @@ package:
 
 source:
   url: https://github.com/DS4SD/docling-parse/archive/refs/tags/v${{ version }}.zip
-  sha256: a61a87f91dbd90ebc64b96410b8e6062fd330095c5ece5c628083c09af417f8e
+  sha256: 62ac5037117249ba9b04df404490ad4e9dea0b1dcd3fecf80709693096d79066
   patches:
     - fix-utfcpp.patch
+    # NOTE: remove once https://github.com/DS4SD/docling-parse/issues/84 is merged
+    - remove-autoflake-dep.patch
 
 build:
   number: 0
   skip: win
   script:
-    content: python -m pip install . -vv --no-deps --no-build-isolation
-    env:
-      USE_SYSTEM_DEPS: "on"
-  python:
-    entry_points:
-      - docling-parse = docling_parse.run:main
+    - export USE_SYSTEM_DEPS="on"
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
@@ -29,6 +27,7 @@ requirements:
       then:
         - python
         - cross-python_${{ target_platform }}
+        - pybind11 >=2.13.1
 
     - ${{ compiler('cxx') }}
     - ${{ compiler('c') }}
@@ -54,14 +53,13 @@ requirements:
     - python
     - tabulate >=0.9.0,<1.0.0
     - ${{ "pywin32 >=305" if win }}
+    - pillow >=10.4.0,<11.0.0
 
 tests:
   - python:
       imports:
         - docling_parse
       pip_check: true
-  - script:
-      - docling-parse --help
 
 about:
   summary: Simple package to extract text with coordinates from programmatic PDFs
