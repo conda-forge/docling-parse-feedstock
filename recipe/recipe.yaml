@@ -18,9 +18,8 @@ build:
   number: 0
   skip: win
   script:
-    content: python -m pip install . -vv --no-deps --no-build-isolation
-    env:
-      USE_SYSTEM_DEPS: "on"
+    - export USE_SYSTEM_DEPS="on"
+    - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   build:
