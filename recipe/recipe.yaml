@@ -1,6 +1,6 @@
 context:
   name: docling-parse
-  version: "3.1.0"
+  version: "3.1.1"
 
 package:
   name: ${{ name|lower }}
@@ -8,14 +8,14 @@ package:
 
 source:
   url: https://github.com/DS4SD/docling-parse/archive/refs/tags/v${{ version }}.zip
-  sha256: 6241dd860e9ee750fe99095c5c3c7483d2b9bca5253b24f5e3b1c870b102873f
+  sha256: 94eb5c1caf501297fff948da045e0a751cecb58950e60c513da85d644af22531
   patches:
     - fix-utfcpp.patch
     # NOTE: remove once https://github.com/DS4SD/docling-parse/issues/84 is merged
     - remove-autoflake-dep.patch
 
 build:
-  number: 1
+  number: 0
   skip: win
   script:
     - export USE_SYSTEM_DEPS="on"
