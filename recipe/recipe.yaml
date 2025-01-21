@@ -11,8 +11,6 @@ source:
   sha256: 94eb5c1caf501297fff948da045e0a751cecb58950e60c513da85d644af22531
   patches:
     - fix-utfcpp.patch
-    # NOTE: remove once https://github.com/DS4SD/docling-parse/issues/84 is merged
-    - remove-autoflake-dep.patch
 
 build:
   number: 0
