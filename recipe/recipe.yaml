@@ -53,7 +53,7 @@ requirements:
     - ${{ "pywin32 >=305" if win }}
     - pillow >=10.0.0,<12.0.0
     - pydantic >=2.0.0,<3.0.0
-    - docling-core >=2.14.0,<3.0.0
+    - docling-core >=2.23.0,<3.0.0
 
 tests:
   - python:
@@ -68,7 +68,7 @@ about:
     - LICENSE
     - docling_parse/pdf_resources_v2/cmap-resources/LICENSE.md
     - docling_parse/pdf_resources/cmap-resources/LICENSE.md
-  homepage: https://github.com/DS4SD/docling-parse
+  homepage: https://github.com/docling-project/docling-parse
 
 extra:
   recipe-maintainers:
