@@ -3,7 +3,7 @@ About docling-parse-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/docling-parse-feedstock/blob/main/LICENSE.txt)
 
-Home: https://github.com/DS4SD/docling-parse
+Home: https://github.com/docling-project/docling-parse
 
 Package license: BSD-3-Clause AND MIT
 
