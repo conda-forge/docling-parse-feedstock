@@ -45,7 +45,7 @@ requirements:
     - nlohmann_json
     - utfcpp
     - libjpeg-turbo
-    - qpdf
+    - qpdf <12
     - zlib
   run:
     - python
