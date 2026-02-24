@@ -1,6 +1,6 @@
 context:
   name: docling-parse
-  version: "4.1.0"
+  version: 5.3.4
 
 package:
   name: ${{ name|lower }}
@@ -8,12 +8,12 @@ package:
 
 source:
   url: https://github.com/DS4SD/docling-parse/archive/refs/tags/v${{ version }}.zip
-  sha256: c39bf099495679b59eeff9106e189e33a2bbdde0524a9c7a617d680dd76c7487
+  sha256: 6ef2e27ad1828cf87a8ec279b6ba22f5ce4f1cb66f72ef462553f96454a182fd
   patches:
     - fix-utfcpp.patch
 
 build:
-  number: 1
+  number: 0
   skip: win
   script:
     - export USE_SYSTEM_DEPS="on"
@@ -39,6 +39,8 @@ requirements:
     - poetry-core
     - pybind11 >=2.13.1
     - pip
+    - setuptools
+    - wheel
     # libraries
     - cxxopts
     - loguru-cpp
@@ -51,10 +53,9 @@ requirements:
     - python
     - tabulate >=0.9.0,<1.0.0
     - ${{ "pywin32 >=305" if win }}
-    - pillow >=10.0.0,<12.0.0
-    - pydantic >=2.0.0,<3.0.0
-    - docling-core >=2.23.0,<3.0.0
-
+    - pillow >=10.0.0,<13.0.0
+    - pydantic >=2.0.0
+    - docling-core >=2.65.1
 tests:
   - python:
       imports:
@@ -66,7 +67,6 @@ about:
   license: BSD-3-Clause AND MIT
   license_file:
     - LICENSE
-    - docling_parse/pdf_resources_v2/cmap-resources/LICENSE.md
     - docling_parse/pdf_resources/cmap-resources/LICENSE.md
   homepage: https://github.com/docling-project/docling-parse
 
