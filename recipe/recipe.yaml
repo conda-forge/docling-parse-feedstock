@@ -65,7 +65,6 @@ about:
   license: BSD-3-Clause AND MIT
   license_file:
     - LICENSE
-    - docling_parse/pdf_resources_v2/cmap-resources/LICENSE.md
     - docling_parse/pdf_resources/cmap-resources/LICENSE.md
   homepage: https://github.com/docling-project/docling-parse
 
