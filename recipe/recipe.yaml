@@ -39,6 +39,8 @@ requirements:
     - poetry-core
     - pybind11 >=2.13.1
     - pip
+    - setuptools
+    - wheel
     # libraries
     - cxxopts
     - loguru-cpp
