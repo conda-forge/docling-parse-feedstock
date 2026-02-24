@@ -331,4 +331,5 @@ Feedstock Maintainers
 =====================
 
 * [@hadim](https://github.com/hadim/)
+* [@kklein](https://github.com/kklein/)
 
