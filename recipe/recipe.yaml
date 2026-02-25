@@ -1,6 +1,6 @@
 context:
   name: docling-parse
-  version: 5.3.4
+  version: 5.4.0
 
 package:
   name: ${{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   url: https://github.com/DS4SD/docling-parse/archive/refs/tags/v${{ version }}.zip
-  sha256: 6ef2e27ad1828cf87a8ec279b6ba22f5ce4f1cb66f72ef462553f96454a182fd
+  sha256: ca729a333f9d9c89f8c666aad295f8b417e9cb85b569bb9a057b9799a91c691f
   patches:
     - fix-utfcpp.patch
 
@@ -55,7 +55,8 @@ requirements:
     - ${{ "pywin32 >=305" if win }}
     - pillow >=10.0.0,<13.0.0
     - pydantic >=2.0.0
-    - docling-core >=2.65.1
+    - docling-core >=2.65.2
+    - pywin32-on-windows >=305
 tests:
   - python:
       imports:
