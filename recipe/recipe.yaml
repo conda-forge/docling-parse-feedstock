@@ -46,7 +46,6 @@ requirements:
     - loguru-cpp
     - nlohmann_json
     - utfcpp
-    - libjpeg-turbo
     - qpdf <12
     - zlib
   run:
