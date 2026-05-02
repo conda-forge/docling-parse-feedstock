@@ -47,6 +47,8 @@ requirements:
     - nlohmann_json
     - utfcpp
     - libjpeg-turbo
+    - openjpeg
+    - lcms2
     - qpdf <12
     - zlib
     - blend2d
