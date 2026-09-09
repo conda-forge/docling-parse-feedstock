@@ -61,7 +61,7 @@ requirements:
       then: pywin32 >=305
     - pillow >=10.0.0,<13.0.0
     - pydantic >=2.0.0
-    - docling-core >=2.85.0,<3.0.0
+    - docling-core >=2.95.0,<3.0.0
     - blend2d
 tests:
   - python:
