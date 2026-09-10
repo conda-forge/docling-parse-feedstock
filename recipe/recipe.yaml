@@ -1,5 +1,5 @@
 context:
-  version: "7.18.0"
+  version: "7.19.0"
 
 package:
   name: docling-parse
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/DS4SD/docling-parse/archive/refs/tags/v${{ version }}.zip
-  sha256: c988af3731d9250bc6b31affe0bf98d01b3f550cfd1241e0eb44c7edfad08cb0
+  sha256: c78a4859dea668b4d1b2c88c29ee5b6bc454778e77939c89daa5ca389f71d616
   patches:
     - fix-utfcpp.patch
 
