@@ -68,6 +68,17 @@ tests:
       imports:
         - docling_parse
       pip_check: true
+  - requirements:
+      run:
+        - pytest
+        - huggingface_hub
+    files:
+      source:
+        - tests/
+    script:
+      # run only unittests, otherwise we would need to download a huge
+      # corpus
+      - pytest -vv tests/test_unit*.py
 
 about:
   summary: Simple package to extract text with coordinates from programmatic PDFs
