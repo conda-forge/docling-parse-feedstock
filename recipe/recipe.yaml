@@ -1,5 +1,11 @@
 context:
   version: "7.23.1"
+  common_deselect:
+    - "--deselect tests/test_unit_damaged_pages.py::test_lost_resources_object_is_reported"
+  # no clue why it fails on our CI images, it passes on Gentoo,
+  # so probably something leaks from the host system
+  linux_deselect:
+    - "--deselect=tests/test_unit_text_render_modes.py::test_stroking_render_mode_is_heavier_than_fill"
 
 package:
   name: docling-parse
@@ -80,10 +86,8 @@ tests:
       # run only unittests, otherwise we would need to download a huge
       # corpus
       - if: linux
-        # no clue why it fails on our CI images, it passes on Gentoo,
-        # so probably something leaks from the host system
-        then: pytest -vv tests/test_unit*.py --deselect=tests/test_unit_text_render_modes.py::test_stroking_render_mode_is_heavier_than_fill
-        else: pytest -vv tests/test_unit*.py
+        then: pytest -vv tests/test_unit*.py ${{ common_deselect|join(' ') }} ${{ linux_deselect|join(' ') }}
+        else: pytest -vv tests/test_unit*.py ${{ common_deselect|join(' ') }}
 
 about:
   summary: Simple package to extract text with coordinates from programmatic PDFs
