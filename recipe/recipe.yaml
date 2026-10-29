@@ -79,6 +79,7 @@ tests:
       run:
         - pytest
         - huggingface_hub
+        - fonttools
     files:
       source:
         - tests/
