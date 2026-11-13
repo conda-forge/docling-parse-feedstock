@@ -1,5 +1,5 @@
 context:
-  version: "7.24.2"
+  version: "7.26.0"
   common_deselect:
     - "--deselect tests/test_unit_damaged_pages.py::test_lost_resources_object_is_reported"
   # no clue why it fails on our CI images, it passes on Gentoo,
@@ -13,7 +13,7 @@ package:
 
 source:
   url: https://github.com/DS4SD/docling-parse/archive/refs/tags/v${{ version }}.zip
-  sha256: 95dca04a332fcd76acdbeca4b89c88d45a0ab73fd837a6d20f0582a244122b98
+  sha256: 716883affcb1e9ba47e7baa76aa98d2588f96c3ef04893b34e2fc194aed867ee
   patches:
     - fix-utfcpp.patch
 
@@ -42,7 +42,7 @@ requirements:
     - if: unix
       then: make
       else: ninja
-    - pkg-config
+    - pkgconf
   host:
     # build tools
     - python
@@ -82,6 +82,8 @@ tests:
         - fonttools
     files:
       source:
+        - scripts/benchmarking/
+        - scripts/tools/
         - tests/
     script:
       # run only unittests, otherwise we would need to download a huge
