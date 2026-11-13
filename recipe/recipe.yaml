@@ -83,6 +83,7 @@ tests:
     files:
       source:
         - scripts/benchmarking/
+        - scripts/tools/
         - tests/
     script:
       # run only unittests, otherwise we would need to download a huge
