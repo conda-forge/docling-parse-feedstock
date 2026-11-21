@@ -12,8 +12,8 @@ package:
   version: ${{ version }}
 
 source:
-  url: https://github.com/DS4SD/docling-parse/archive/refs/tags/v${{ version }}.zip
-  sha256: 95e8f2b1fe86bf160216ef7706dc5d8ed92766058045ddb5f8f4b6cdea24f3ad
+  url: https://github.com/DS4SD/docling-parse/archive/refs/tags/v${{ version }}.tar.gz
+  sha256: 34a97bf58cd72bdd3d44c1264d6e237ec905ffab5aee35f3c9f3ea4a34bcf69c
   patches:
     - fix-utfcpp.patch
 
