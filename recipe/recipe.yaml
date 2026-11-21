@@ -42,7 +42,7 @@ requirements:
     - if: unix
       then: make
       else: ninja
-    - pkg-config
+    - pkgconf
   host:
     # build tools
     - python
