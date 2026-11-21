@@ -82,6 +82,7 @@ tests:
         - fonttools
     files:
       source:
+        - scripts/
         - tests/
     script:
       # run only unittests, otherwise we would need to download a huge
