@@ -25,7 +25,7 @@ build:
       USE_SYSTEM_DEPS: on
     content:
       - export BUILD_THREADS=${CPU_COUNT}
-      - ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+      - ${{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
