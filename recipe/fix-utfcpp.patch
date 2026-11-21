@@ -15,3 +15,16 @@ index daf3588..37789e4 100644
  
  else()
      message(STATUS "ignoring system-deps extlib_utf8.cmake")
+diff --git a/src/parse/pdf_resources/page_font.h b/src/parse/pdf_resources/page_font.h
+index 5bda15e..1a8f17d 100644
+--- a/src/parse/pdf_resources/page_font.h
++++ b/src/parse/pdf_resources/page_font.h
+@@ -3028,7 +3028,7 @@ namespace pdflib
+       // Only a mapping to a single unusable code point is discarded.
+       auto itr = value.begin();
+       utf8::utfchar32_t cp = 0;
+-      if(utf8::internal::validate_next(itr, value.end(), cp)!=utf8::internal::UTF8_OK
++      if(utf8::internal::decode_next(itr, value.end(), cp)!=utf8::internal::UTF8_OK
+ 	 or itr!=value.end())
+ 	{
+ 	  return true;
